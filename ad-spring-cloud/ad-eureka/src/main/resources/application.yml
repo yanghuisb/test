@@ -1,0 +1,60 @@
+#eureka 单实例启动
+server:
+  port: 8000
+spring:
+  application:
+    name: ad-eureka
+eureka:
+  instance:
+    hostname: localhost  #ad-eureka对应的主机名
+  client:
+    fetch-registry: false  #是否从eureka获取注册信息，默认是true，这里是单节点，设置为false
+    register-with-eureka: false  #是否将自己注册到eureka中心，默认为true。这里是单节点，所以设置为false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+##Eureka多实例启动
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: server1
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: server1
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.92.1:8001/eureka/,http://192.168.92.1:8002/eureka/
+#
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: server2
+#server:
+#  port: 8001
+#eureka:
+#  instance:
+#    hostname: server2
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.92.1:8000/eureka/,http://192.168.92.1:8002/eureka/
+#
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: server3
+#server:
+#  port: 8002
+#eureka:
+#  instance:
+#    hostname: server3
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.92.1:8000/eureka/,http://192.168.92.1:8001/eureka/
