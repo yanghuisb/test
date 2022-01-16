@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父模块必须添加 -->
+    <!-- type：表示依赖类型，默认是 jar。
+        设置为 pom，则标识是一个聚合工程
+        聚合 pom 文件的 packaging 标签一定要是 pom，其工程就只是一个 pom 文件，没有其他的实现代码。 -->
+    <groupId>org.example</groupId>
+    <artifactId>com-ad-spring-cloud</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 被那些子模块引用 -->
+    <modules>
+        <module>ad-eureka</module>
+        <module>ad-gateway</module>
+        <module>hui-ad-service</module>
+    </modules>
+
+
+    <!-- 类似于继承关系，规定子模块的版本号 -->
+    <!-- spring-boot-starter-parent 是 SpringBoot 的父级依赖，有了这个依赖，当前的项目就是Spring Boot 项目 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.2.RELEASE</version>
+    </parent>
+
+    <!-- 管理通用属性 -->
+    <properties>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+    </properties>
+
+    <!-- 子模块自动继承父模块的依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- scope：设置为 import，它只使用在<dependencyManagement>中，表示从其它的pom中导入dependency的配置。 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 配置远程仓库，当Maven的Setting.xml 没有配置时，就能通过该配置去下载需要的资源 -->
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>spring-milestones</id>-->
+<!--            <name>Spring Milestones</name>-->
+<!--            <url>https://repo.spring.io/milestone</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+
+</project>

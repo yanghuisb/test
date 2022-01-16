@@ -1,0 +1,6 @@
+com\hui\ad\exception\AdException.class
+com\hui\ad\annotation\IgnoreResponseAdvice.class
+com\hui\ad\advice\GlobalExceptionAdvice.class
+com\hui\ad\advice\CommonResponseDataAdvice.class
+com\hui\ad\conf\WebConfiguration.class
+vo\CommonResponse.class

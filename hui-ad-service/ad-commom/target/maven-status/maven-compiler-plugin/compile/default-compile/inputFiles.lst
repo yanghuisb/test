@@ -1,0 +1,6 @@
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\com\hui\ad\exception\AdException.java
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\vo\CommonResponse.java
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\com\hui\ad\conf\WebConfiguration.java
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\com\hui\ad\advice\GlobalExceptionAdvice.java
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\com\hui\ad\annotation\IgnoreResponseAdvice.java
+F:\ad-spring-cloud\hui-ad-service\ad-commom\src\main\java\com\hui\ad\advice\CommonResponseDataAdvice.java
